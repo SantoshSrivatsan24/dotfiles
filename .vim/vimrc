@@ -1,0 +1,7 @@
+let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
+colorscheme onedark
+syntax on
+set number
+highlight Normal ctermbg=None
+highlight LineNr ctermfg=DarkGrey
