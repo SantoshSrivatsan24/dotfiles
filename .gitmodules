@@ -1,0 +1,3 @@
+[submodule ".vim/pack/santosh/start/vim-airline"]
+	path = .vim/pack/santosh/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
