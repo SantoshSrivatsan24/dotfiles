@@ -4,3 +4,6 @@
 [submodule ".vim/pack/santosh/start/vim-airline-themes"]
 	path = .vim/pack/santosh/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "/Users/santosh/.config/Übersicht/widgets/simple-bar"]
+	path = /Users/santosh/.config/Übersicht/widgets/simple-bar
+	url = https://github.com/Jean-Tinland/simple-bar
