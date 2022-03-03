@@ -52,6 +52,8 @@ yabai -m signal --add event=space_changed action="osascript -e 'tell application
 
 # float windows
 yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
+yabai -m rule --add label="Self Control" app="^Self Control$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" manage=off
 
 # bind windows to desktops
 yabai -m rule --add app="^Safari$" space=1
