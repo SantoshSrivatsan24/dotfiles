@@ -1,7 +1,7 @@
 let g:airline_powerline_fonts = 1
-let g:airline_theme='nord'
-colorscheme nord
+let g:airline_theme='onedark'
 syntax on
+colorscheme onedark
 set number
 highlight Normal ctermbg=None
 highlight LineNr ctermfg=DarkGrey

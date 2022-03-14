@@ -45,20 +45,36 @@ yabai -m config left_padding                 5
 yabai -m config right_padding                5
 yabai -m config window_gap                   5
 
+# yabai -m config window_border on
+# yabai -m config window_border_width 6
+# yabai -m config active_window_border_color 0xff775759
+# yabai -m config normal_window_border_color 0xff555555
+
+# yabai -m window --toggle border
+
+
+# Ubersicht
 yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
 yabai -m signal --add event=display_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
 yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
 # yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
 
+# Limelight
+# killall limelight &> /dev/null
+# limelight &> /dev/null &
+
+# yabai -m signal --add event=application_activated action="pkill -SIGUSR1 limelight &> /dev/null"
+
 # float windows
 yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
 yabai -m rule --add label="Self Control" app="^Self Control$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
+yabai -m rule --add label="Spotify" app="^Spotify$" manage=off
+
 
 # bind windows to desktops
 yabai -m rule --add app="^Safari$" space=1
 yabai -m rule --add app="^Spotify$" space=6
 yabai -m rule --add app="^Microsoft Teams$" space=5
-
 
 echo "yabai configuration loaded.."

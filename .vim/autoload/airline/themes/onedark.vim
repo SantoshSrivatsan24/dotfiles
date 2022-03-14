@@ -1,29 +1,129 @@
 " [onedark.vim](https://github.com/joshdick/onedark.vim/)
 
-let s:overrides = get(g:, "onedark_color_overrides", {})
+" This is a [vim-airline](https://github.com/vim-airline/vim-airline) theme for use with
+" the [onedark.vim](https://github.com/joshdick/onedark.vim) colorscheme.
 
-let s:colors = {
-      \ "red": get(s:overrides, "red", { "gui": "#E06C75", "cterm": "204", "cterm16": "1" }),
-      \ "dark_red": get(s:overrides, "dark_red", { "gui": "#BE5046", "cterm": "196", "cterm16": "9" }),
-      \ "green": get(s:overrides, "green", { "gui": "#98C379", "cterm": "114", "cterm16": "2" }),
-      \ "yellow": get(s:overrides, "yellow", { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" }),
-      \ "dark_yellow": get(s:overrides, "dark_yellow", { "gui": "#D19A66", "cterm": "173", "cterm16": "11" }),
-      \ "blue": get(s:overrides, "blue", { "gui": "#61AFEF", "cterm": "39", "cterm16": "4" }),
-      \ "purple": get(s:overrides, "purple", { "gui": "#C678DD", "cterm": "170", "cterm16": "5" }),
-      \ "cyan": get(s:overrides, "cyan", { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" }),
-      \ "white": get(s:overrides, "white", { "gui": "#ABB2BF", "cterm": "145", "cterm16": "15" }),
-      \ "black": get(s:overrides, "black", { "gui": "#282C34", "cterm": "235", "cterm16": "0" }),
-      \ "foreground": get(s:overrides, "foreground", { "gui": "#ABB2BF", "cterm": "145", "cterm16": "NONE" }),
-      \ "background": get(s:overrides, "background", { "gui": "#282C34", "cterm": "235", "cterm16": "NONE" }),
-      \ "comment_grey": get(s:overrides, "comment_grey", { "gui": "#5C6370", "cterm": "59", "cterm16": "7" }),
-      \ "gutter_fg_grey": get(s:overrides, "gutter_fg_grey", { "gui": "#4B5263", "cterm": "238", "cterm16": "8" }),
-      \ "cursor_grey": get(s:overrides, "cursor_grey", { "gui": "#2C323C", "cterm": "236", "cterm16": "0" }),
-      \ "visual_grey": get(s:overrides, "visual_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "8" }),
-      \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "7" }),
-      \ "special_grey": get(s:overrides, "special_grey", { "gui": "#3B4048", "cterm": "238", "cterm16": "7" }),
-      \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#3E4452", "cterm": "59", "cterm16": "7" }),
-      \}
+" It is based on vim-airline's ["tomorrow" theme](https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/tomorrow.vim).
+function! airline#themes#onedark#refresh()
 
-function! onedark#GetColors()
-  return s:colors
+  if get(g:, 'onedark_termcolors', 256) == 16
+    let s:term_red = 1
+    let s:term_green = 2
+    let s:term_yellow = 3
+    let s:term_blue = 4
+    let s:term_purple = 5
+    let s:term_white = 7
+    let s:term_black = 0
+    let s:term_grey = 8
+  else
+    let s:term_red = 204
+    let s:term_green = 114
+    let s:term_yellow = 180
+    let s:term_blue = 39
+    let s:term_purple = 170
+    let s:term_white = 145
+    let s:term_black = 235
+    let s:term_grey = 236
+  endif
+
+  let g:airline#themes#onedark#palette = {}
+
+  let g:airline#themes#onedark#palette.accents = {
+        \ 'red': [ '#E06C75', '', s:term_red, 0 ]
+        \ }
+
+  let s:N1 = [ '#282C34', '#98C379', s:term_black, s:term_green ]
+  let s:N2 = [ '#ABB2BF', '#3E4452', s:term_white, s:term_grey ]
+  let s:N3 = [ '#98C379', '#282C34', s:term_green, s:term_grey ]
+  let g:airline#themes#onedark#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+
+  let group = airline#themes#get_highlight('vimCommand')
+  let g:airline#themes#onedark#palette.normal_modified = {
+        \ 'airline_c': [ group[0], '', group[2], '', '' ]
+        \ }
+
+  let s:I1 = [ '#282C34', '#61AFEF', s:term_black, s:term_blue ]
+  let s:I2 = s:N2
+  let s:I3 = [ '#61AFEF', '#282C34', s:term_blue, s:term_grey ]
+  let g:airline#themes#onedark#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
+  let g:airline#themes#onedark#palette.insert_modified = g:airline#themes#onedark#palette.normal_modified
+
+  let s:R1 = [ '#282C34', '#E06C75', s:term_black, s:term_red ]
+  let s:R2 = s:N2
+  let s:R3 = [ '#E06C75', '#282C34', s:term_red, s:term_grey ]
+  let g:airline#themes#onedark#palette.replace = airline#themes#generate_color_map(s:R1, s:R2, s:R3)
+  let g:airline#themes#onedark#palette.replace_modified = g:airline#themes#onedark#palette.normal_modified
+
+  let s:V1 = [ '#282C34', '#C678DD', s:term_black, s:term_purple ]
+  let s:V2 = s:N2
+  let s:V3 = [ '#C678DD', '#282C34', s:term_purple, '' ]
+  let g:airline#themes#onedark#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
+  let g:airline#themes#onedark#palette.visual_modified = g:airline#themes#onedark#palette.normal_modified
+
+  let s:IA1 = [ '#282C34', '#ABB2BF', s:term_black, s:term_white ]
+  let s:IA2 = [ '#ABB2BF', '#3E4452', s:term_white, s:term_grey ]
+  let s:IA3 = s:N2
+  let g:airline#themes#onedark#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
+  let g:airline#themes#onedark#palette.inactive_modified = {
+        \ 'airline_c': [ group[0], '', group[2], '', '' ]
+        \ }
+
+  " Warning/Error styling code from vim-airline's ["base16" theme](https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/base16.vim)
+
+  " Warnings
+  let s:WI = [ '#282C34', '#E5C07B', s:term_black, s:term_yellow ]
+  let g:airline#themes#onedark#palette.normal.airline_warning = [
+       \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
+       \ ]
+
+  let g:airline#themes#onedark#palette.normal_modified.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  let g:airline#themes#onedark#palette.insert.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  let g:airline#themes#onedark#palette.insert_modified.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  let g:airline#themes#onedark#palette.visual.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  let g:airline#themes#onedark#palette.visual_modified.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  let g:airline#themes#onedark#palette.replace.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  let g:airline#themes#onedark#palette.replace_modified.airline_warning =
+      \ g:airline#themes#onedark#palette.normal.airline_warning
+
+  " Errors
+  let s:ER = [ '#282C34', '#E06C75', s:term_black, s:term_red ]
+  let g:airline#themes#onedark#palette.normal.airline_error = [
+       \ s:ER[0], s:ER[1], s:ER[2], s:ER[3]
+       \ ]
+
+  let g:airline#themes#onedark#palette.normal_modified.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
+  let g:airline#themes#onedark#palette.insert.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
+  let g:airline#themes#onedark#palette.insert_modified.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
+  let g:airline#themes#onedark#palette.visual.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
+  let g:airline#themes#onedark#palette.visual_modified.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
+  let g:airline#themes#onedark#palette.replace.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
+  let g:airline#themes#onedark#palette.replace_modified.airline_error =
+      \ g:airline#themes#onedark#palette.normal.airline_error
+
 endfunction
+
+call airline#themes#onedark#refresh()
