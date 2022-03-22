@@ -128,4 +128,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export HOMEBREW_GITHUB_API_TOKEN=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
