@@ -15,11 +15,11 @@ Welcome! And thanks for dropping by.
 ---
 📸 Screenshots
 
-![Wallpaper](./Pictures/Screenshots/unixporn/desktop.png)
+![Wallpaper](/Pictures/Screenshots/unixporn/desktop.png)
 
-![Workflow](./Pictures/Screenshots/unixporn/workflow.png)
+![Workflow](/Pictures/Screenshots/unixporn/workflow.png)
 
-![Spotify](./Pictures/Screenshots/unixporn/spotify.png)
+![Spotify](/Pictures/Screenshots/unixporn/spotify.png)
 
 
 
