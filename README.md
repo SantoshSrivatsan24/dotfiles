@@ -11,7 +11,9 @@ Welcome! And thanks for dropping by.
 5. Terminal: [iTerm2](https://iterm2.com) (One Dark)
 6. Text Editor: Visual Studio Code (One Monokai)
 7. Waveform Viewer: [wavetrace](https://www.wavetrace.io)
-7. Wallpaper: Floaroma Town by [Kianna Mosser](https://www.inprnt.com/gallery/kianamosser/)
+8. Emulator: [OpenEmu](https://openemu.org)
+9. Wallpaper: Floaroma Town by [Kianna Mosser](https://www.inprnt.com/gallery/kianamosser/)
+10. Colorscheme: [onedark](https://github.com/joshdick/onedark.vim)
 ---
 📸 Screenshots
 
@@ -19,7 +21,7 @@ Welcome! And thanks for dropping by.
 
 ![Workflow](/Pictures/Screenshots/unixporn/workflow.png)
 
-![Spotify](/Pictures/Screenshots/unixporn/spotify.png)
+![Spotify](/Pictures/Screenshots/unixporn/pokemon.png)
 
 
 

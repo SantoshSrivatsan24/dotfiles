@@ -59,6 +59,8 @@ yabai -m rule --add label="System Preferences" app="^System Preferences$" manage
 yabai -m rule --add label="Self Control" app="^Self Control$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
 yabai -m rule --add label="Spotify" app="^Spotify$" manage=off
+yabai -m rule --add label="OpenEmu" app="^OpenEmu$" manage=off
+
 
 
 # bind windows to desktops
