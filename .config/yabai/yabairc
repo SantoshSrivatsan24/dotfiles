@@ -25,9 +25,9 @@ yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
-yabai -m config window_border                off
+yabai -m config window_border                on
 yabai -m config window_border_width          6
-yabai -m config active_window_border_color   0xff775759
+yabai -m config active_window_border_color   0xffE6475F
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
@@ -39,31 +39,20 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  30
+yabai -m config top_padding                  5
 yabai -m config bottom_padding               5
 yabai -m config left_padding                 5
 yabai -m config right_padding                5
 yabai -m config window_gap                   5
 
-# yabai -m config window_border on
-# yabai -m config window_border_width 6
-# yabai -m config active_window_border_color 0xff775759
-# yabai -m config normal_window_border_color 0xff555555
-
-# yabai -m window --toggle border
-
+# Spacebar
+yabai -m config external_bar all:26:0
 
 # Ubersicht
-yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
-yabai -m signal --add event=display_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
-yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# yabai -m signal --add event=display_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
 # yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
-
-# Limelight
-# killall limelight &> /dev/null
-# limelight &> /dev/null &
-
-# yabai -m signal --add event=application_activated action="pkill -SIGUSR1 limelight &> /dev/null"
 
 # float windows
 yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
@@ -76,5 +65,7 @@ yabai -m rule --add label="Spotify" app="^Spotify$" manage=off
 yabai -m rule --add app="^Safari$" space=1
 yabai -m rule --add app="^Spotify$" space=6
 yabai -m rule --add app="^Microsoft Teams$" space=5
+yabai -m rule --add app="^Spark$" space=6
+
 
 echo "yabai configuration loaded.."
