@@ -1,32 +1,34 @@
 #!/usr/bin/env sh
 
+source $HOME/.config/spacebar/colors
+
 spacebar -m config position           top
 spacebar -m config height             26
 spacebar -m config spacing_left       25
 spacebar -m config spacing_right      30
-spacebar -m config text_font          "MesloLGS NF:Bold:14.0"
-spacebar -m config icon_font          "FiraCode Nerd Font Mono:Regular:16.0"
-spacebar -m config background_color   0xff21252b
-spacebar -m config foreground_color   0xffa8a8a8
+spacebar -m config text_font          "Iosevka Nerd Font:Bold:14.0"
+spacebar -m config icon_font          "Hack Nerd Font Mono:Bold:20.0"
+spacebar -m config background_color   0xff${BACKGROUND:1}
+spacebar -m config foreground_color   0xffffffff
 
 spacebar -m config dnd                      on
 spacebar -m config power                    on
 spacebar -m config spaces_for_all_displays  on
 spacebar -m config display_separator        on
 
-spacebar -m config space_icon_color   0xffe5c07b
-spacebar -m config power_icon_color   0xffe5c07b
-spacebar -m config battery_icon_color 0xffe06c75
-spacebar -m config dnd_icon_color     0xffc678dd
-spacebar -m config clock_icon_color   0xff98c379
+spacebar -m config space_icon_color   0xff${BLUE:1}
+spacebar -m config power_icon_color   0xff${YELLOW:1}
+spacebar -m config battery_icon_color 0xff${GREEN:1}
+spacebar -m config dnd_icon_color     0xff${YELLOW:1}
+spacebar -m config clock_icon_color   0xff${PURPLE:1}
 
-spacebar -m config display_separator_icon   ""
-spacebar -m config space_icon_strip            
+spacebar -m config display_separator_icon 
+spacebar -m config space_icon_strip        
 spacebar -m config power_icon_strip   
-spacebar -m config space_icon         
-spacebar -m config clock_icon         
-spacebar -m config dnd_icon           
+spacebar -m config clock_icon        
+spacebar -m config dnd_icon          
 spacebar -m config clock_format       "%Y-%m-%d %a %R"
+# spacebar -m config space_icon         
 
 #spacebar -m config padding_left       20
 #spacebar -m config padding_right      20
