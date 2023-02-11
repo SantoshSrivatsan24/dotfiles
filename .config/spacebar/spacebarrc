@@ -16,14 +16,14 @@ spacebar -m config power                    on
 spacebar -m config spaces_for_all_displays  on
 spacebar -m config display_separator        on
 
-spacebar -m config space_icon_color   0xff${BLUE:1}
+spacebar -m config space_icon_color   0xff${TURQUOISE:1}
 spacebar -m config power_icon_color   0xff${YELLOW:1}
 spacebar -m config battery_icon_color 0xff${GREEN:1}
 spacebar -m config dnd_icon_color     0xff${YELLOW:1}
 spacebar -m config clock_icon_color   0xff${PURPLE:1}
 
 spacebar -m config display_separator_icon 
-spacebar -m config space_icon_strip        
+spacebar -m config space_icon_strip         
 spacebar -m config power_icon_strip   
 spacebar -m config clock_icon        
 spacebar -m config dnd_icon          

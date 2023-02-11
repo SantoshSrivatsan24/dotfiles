@@ -25,9 +25,11 @@ yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
-yabai -m config window_border                off
+yabai -m config window_border                on
 yabai -m config window_border_width          4
-yabai -m config active_window_border_color   0xff56b6c2
+yabai -m config window_border_radius         10
+# yabai -m config window_border_radius         2
+yabai -m config active_window_border_color   0xffebdbb2
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
@@ -39,34 +41,36 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  7
-yabai -m config bottom_padding               7
-yabai -m config left_padding                 7
-yabai -m config right_padding                7
-yabai -m config window_gap                   7
+yabai -m config top_padding                  0
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+yabai -m config right_padding                0
+yabai -m config window_gap                   0
 
 # Spacebar/Sketchybar
 yabai -m config external_bar all:26:0
 
 # float windows
+yabai -m rule --add label="Finder" app="^Finder$" manage=off
 yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
-yabai -m rule --add label="Self Control" app="^Self Control$" manage=off
-yabai -m rule --add label="Spotify" app="^Spotify$" manage=off
-yabai -m rule --add label="Messages" app="^Messages$" manage=off
-# yabai -m rule --add label="iTerm2" app="^iTerm2$" manage=off
+yabai -m rule --add label="SelfControl" app="^SelfControl$" manage=off
+yabai -m rule --add label="Tot" app="^Tot$" manage=off
 
+# label spaces
 yabai -m space 1 --label web
 yabai -m space 2 --label code
-yabai -m space 3 --label home
-yabai -m space 4 --label chat
-yabai -m space 5 --label files
+yabai -m space 3 --label doc
+yabai -m space 4 --label home
+yabai -m space 5 --label cal
 yabai -m space 6 --label term
 
 # bind windows to spaces
 yabai -m rule --add app="^(Firefox|Safari)$" space=web
 yabai -m rule --add app="^Code$" space=code
-yabai -m rule --add app="^(Microsoft Teams|WhatsaApp|Messages)$" space=chat
-yabai -m rule --add app="^Finder$" display=2 space=files
-yabai -m rule --add app="^iTerm2$" display=2 space=term
+yabai -m rule --add app="^PDF Expert" space=doc
+yabai -m rule --add app="^(Microsoft Teams|WhatsaApp|Messages|Slack|Discord|Spotify)$" space=home
+
+yabai -m rule --add app="^Fantastical$" space=cal
+yabai -m rule --add app="^iTerm2$" space=term
 
 echo "yabai configuration loaded.."
